@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "target": "es5",
+    "lib": ["es2016"],
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "outDir": "build",
+    "paths": {
+      "~/*": [
+        "src/*"
+      ]
+    },
+    "allowJs": true,
+    "noEmit": false,
+    "isolatedModules": false
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "coverage",
+    "test",
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*.ts"
+  ]
+}
