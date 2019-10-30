@@ -7,6 +7,7 @@ This is an example app showing how to support passport-saml using express.js.
 3. modify `.env` file, fill in the `SAML_PROTOCOL_URL`, `SAML_ISSUER`, `SAML_IDP_CERT_PEM_FILE`.
 4. `yarn build`
 5. `yarn start`
+6. Open browser, navigate http://localhost:8080/
 
 ## Development
 `yarn dev`
