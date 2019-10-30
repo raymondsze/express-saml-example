@@ -1,12 +1,12 @@
-import express from 'express';
-import passport from 'passport';
-import helmet from 'helmet';
-import session from 'express-session';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
-import pino from 'pino';
+import express from 'express';
 import pinoMiddleware from 'express-pino-logger';
+import session from 'express-session';
+import helmet from 'helmet';
+import passport from 'passport';
+import pino from 'pino';
 
 import { registerRoutes } from '~/auth';
 
@@ -16,7 +16,7 @@ const COOKIES_SECRET = process.env.COOKIES_SECRET || '4h1s1sCo0ki3sS3cr3T';
 // serialize / deserialize user from session cookie
 passport.serializeUser((user, done) => {
   if (user) return done(null, user);
-  return done(null); 
+  return done(null);
 });
 passport.deserializeUser((user, done) => {
   if (user) return done(null, user);
@@ -32,19 +32,21 @@ app.use(helmet());
 // enable gzip compression for large size response
 app.use(compression());
 // session middleware
-app.use(session({
-  // store,
-  // secret key for encrypted cookie
-  secret: COOKIES_SECRET,
-  // use same-site to prevent csrf attack, but not all browser support
-  // cookie: { sameSite: true },
-  // don't resave the session to store if it hasn't changed
-  resave: false,
-  // reset the cookie Max-Age on every request
-  // rolling: true,
-  // don't create a session for anonymous users
-  saveUninitialized: false,
-}));
+app.use(
+  session({
+    // store,
+    // secret key for encrypted cookie
+    secret: COOKIES_SECRET,
+    // use same-site to prevent csrf attack, but not all browser support
+    // cookie: { sameSite: true },
+    // don't resave the session to store if it hasn't changed
+    resave: false,
+    // reset the cookie Max-Age on every request
+    // rolling: true,
+    // don't create a session for anonymous users
+    saveUninitialized: false,
+  }),
+);
 // enable res.cookie
 app.use(cookieParser(COOKIES_SECRET));
 // parse application/x-www-form-urlencoded

@@ -3,6 +3,7 @@
   "author": "raymondsze",
   "version": "1.0.0",
   "main": "build/index.js",
+  "license": "MIT",
   "scripts": {
     "type-check": "tsc --noEmit",
     "type-check:watch": "npm run type-check -- --watch",
@@ -14,11 +15,11 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "tslint --config tslint.json -p .",
+    "lint:fix": "tslint --config tslint.json -p . --fix",
     "prettier": "prettier --config prettier.config.js --write \"**/*.{ts,js,json,md}\"",
     "precommit": "lint-staged",
     "prepush": "concurrently \"npm run type-check\" \"npm run lint\" \"npm run test:coverage\""
   },
-  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",

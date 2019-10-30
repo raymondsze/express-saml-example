@@ -18,23 +18,12 @@
     "baseUrl": ".",
     "outDir": "build",
     "paths": {
-      "~/*": [
-        "src/*"
-      ]
+      "~/*": ["src/*"]
     },
     "allowJs": false,
     "noEmit": false,
     "isolatedModules": false
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "coverage",
-    "test",
-    "**/*.spec.ts"
-  ],
-  "include": [
-    "**/*.ts"
-  ]
+  "exclude": ["node_modules", "build", "scripts", "coverage", "test"],
+  "include": ["**/*.ts"]
 }
