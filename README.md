@@ -20,7 +20,7 @@ This is an example app showing how to support passport-saml using express.js.
 4. **husky** is set up to initialize git hooks.
 5. **jest** is set up to perform unit test and corresponding coverage
 6. **pino** is set up to convert all log to **json** logging for the ease of some centralized logging system like **ELK**.
-7. **tsconfig-paths** is set up to enable module alias using `~/`.
+7. **babel-module-resolver** is set up to enable module alias using `~/` for `src` folder.
 8. **helmet** is enabled to protect common attacks.
 9. **cookie/session and body parsers**
 11. **dotenv** is enabled to read environment variables from `.env` file.
@@ -33,3 +33,5 @@ This is an example app showing how to support passport-saml using express.js.
 5. `yarn test:coverage`: Run unit test coverage
 6. `yarn lint`: Run linter
 7. `yarn prettier`: Run prettier
+8. `yarn type-check`: Run typescript type-check
+9. `yarn type-check:watch`: Run typescript type-check with watch mode

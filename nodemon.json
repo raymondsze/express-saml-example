@@ -1,6 +1,6 @@
 {
   "watch": ["src/**/*"],
   "execMap": {
-    "ts": "ts-node --project tsconfig.json -r dotenv/config -r tsconfig-paths/register"
+    "ts": "babel-node --extensions \".ts\" -r node_modules/dotenv/config"
   }
 }
