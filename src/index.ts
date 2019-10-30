@@ -13,6 +13,10 @@ import { registerRoutes } from '~/auth';
 const PORT = parseInt(process.env.PORT || '8080', 10);
 const COOKIES_SECRET = process.env.COOKIES_SECRET || '4h1s1sCo0ki3sS3cr3T';
 
+// TODO: connect-sqlite3 have no typescript definition
+const connectSqlite = require('connect-sqlite3');
+const SQLiteStore = connectSqlite(session);
+
 // serialize / deserialize user from session cookie
 passport.serializeUser((user, done) => {
   if (user) return done(null, user);
@@ -34,11 +38,11 @@ app.use(compression());
 // session middleware
 app.use(
   session({
-    // store,
+    store: new SQLiteStore(),
     // secret key for encrypted cookie
     secret: COOKIES_SECRET,
     // use same-site to prevent csrf attack, but not all browser support
-    // cookie: { sameSite: true },
+    cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, sameSite: true },
     // don't resave the session to store if it hasn't changed
     resave: false,
     // reset the cookie Max-Age on every request
