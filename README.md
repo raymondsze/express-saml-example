@@ -7,9 +7,10 @@ This is an example app showing how to support passport-saml using express.js.
 1. Follow https://auth0.com/docs/protocols/saml/saml-idp-generic to enable SAML (Auth0 is just an example, you could use any idp that support SAML)
 2. `cp .env.sample .env`
 3. modify `.env` file, fill in the `SAML_PROTOCOL_URL`, `SAML_ISSUER`, `SAML_IDP_CERT_PEM_FILE`.
-4. `yarn build`
-5. `yarn start`
-6. Open browser, navigate http://localhost:8080/
+4. `yarn`
+5. `yarn build`
+6. `yarn start`
+7. Open browser, navigate http://localhost:8080/
 
 ## Development
 

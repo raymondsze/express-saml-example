@@ -41,8 +41,8 @@ app.use(
     store: new SQLiteStore(),
     // secret key for encrypted cookie
     secret: COOKIES_SECRET,
-    // use same-site to prevent csrf attack, but not all browser support
-    cookie: { maxAge: 7 * 24 * 60 * 60 * 1000, sameSite: true },
+    // set cookie max age
+    cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 },
     // don't resave the session to store if it hasn't changed
     resave: false,
     // reset the cookie Max-Age on every request

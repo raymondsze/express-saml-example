@@ -10,7 +10,19 @@ export function registerRoutes(app: Express) {
     res.redirect('/');
   });
 
-  app.post('/auth/callback', passport.authenticate('saml', { session: true }), (req, res) => {
+  app.post('/auth/logout/callback', (req, res) => {
+    req.logout();
+    res.redirect('/');
+  });
+
+  app.get('/auth/logout', (req, res) => {
+    samlStrategy.logout(req, (err, requestUrl) => {
+      req.logout();
+      res.redirect(requestUrl || '/');
+    });
+  });
+
+  app.post('/auth/login/callback', passport.authenticate('saml', { session: true }), (req, res) => {
     res.redirect('/');
   });
 }
